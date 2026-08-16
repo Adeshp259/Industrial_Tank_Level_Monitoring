@@ -1,0 +1,2 @@
+../Core/Src/eeprom.c:35:19:EEPROM_WriteByte	1
+../Core/Src/eeprom.c:59:9:EEPROM_ReadByte	1
