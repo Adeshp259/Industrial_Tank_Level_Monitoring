@@ -1,2 +1,0 @@
-../Core/Src/eeprom.c:35:19:EEPROM_WriteByte	32	static
-../Core/Src/eeprom.c:59:9:EEPROM_ReadByte	48	static
