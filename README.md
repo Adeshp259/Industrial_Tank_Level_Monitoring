@@ -24,6 +24,19 @@ The system continuously measures the water level using an HC-SR04 ultrasonic sen
 
 ---
 
+## Key Technical Highlights
+
+- Configured STM32F091RC peripherals using STM32CubeMX / CubeIDE
+- Implemented HC-SR04 distance measurement using TIM2 input capture
+- Developed I²C communication for both LCD and AT24C32 EEPROM
+- Implemented non-volatile storage of user-configurable alarm threshold
+- Used UART for real-time monitoring and debugging
+- Implemented GPIO-based user interface with SET, UP and DOWN buttons
+- Designed threshold-based alarm logic using LEDs and buzzer
+- Used STM32 HAL APIs for peripheral control
+- Debugged I²C communication and EEPROM addressing using STM32 debugger
+- Integrated multiple peripherals into a single firmware application
+
 ##  System Operation
 
 The HC-SR04 ultrasonic sensor measures the distance between the sensor and the water surface.
@@ -205,6 +218,7 @@ Industrial_Tank_Level_Monitoring/
 - Add RS-485 / Modbus communication for industrial integration
 - Improve button debouncing using timer/interrupt-based handling
 - Add a watchdog timer for system reliability
+
 
 ##  Author
 
