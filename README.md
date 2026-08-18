@@ -219,6 +219,57 @@ Industrial_Tank_Level_Monitoring/
 - Improve button debouncing using timer/interrupt-based handling
 - Add a watchdog timer for system reliability
 
+##  Technical Challenges & Debugging
+
+### 1. I²C EEPROM Communication Debugging
+
+During integration of the AT24C32 EEPROM, the STM32 initially returned `HAL_ERROR` during read/write operations.
+
+The issue was investigated using:
+
+- `HAL_I2C_IsDeviceReady()`
+- I²C device address scanning
+- STM32 debugger
+- `hi2c1.ErrorCode`
+- Multimeter measurements on SDA and SCL
+- Verification of I²C pull-up resistors
+- Hardware address-pin configuration
+
+The EEPROM was eventually detected at the correct I²C address and reliable read/write communication was established.
+
+### 2. Multiple Devices on the Same I²C Bus
+
+The LCD and AT24C32 EEPROM were connected to the same I²C bus.
+
+The bus was tested by scanning the available 7-bit addresses and verifying that both devices responded independently.
+
+This helped validate the shared SDA/SCL bus configuration and device addressing.
+
+### 3. I²C Pull-up Verification
+
+The SDA and SCL lines were checked for proper pull-up operation.
+
+External pull-up resistors were added to ensure that the open-drain I²C bus could return correctly to the HIGH state.
+
+### 4. EEPROM Address Configuration
+
+During debugging, an incorrect EEPROM address definition in the firmware caused communication failures.
+
+After identifying and correcting the address configuration, the STM32 successfully communicated with the AT24C32.
+
+### 5. Firmware Debugging
+
+STM32CubeIDE debugger was used to trace peripheral communication and inspect variables such as:
+
+- EEPROM read/write status
+- `HAL_StatusTypeDef`
+- `hi2c1.ErrorCode`
+- EEPROM data values
+- Sensor measurements
+- Water-level calculations
+
+This debugging process helped isolate hardware, address and firmware-level issues during system integration.
+
 
 ##  Author
 
