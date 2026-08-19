@@ -137,6 +137,23 @@ This interface can be used for debugging, monitoring and future data-logging fun
 
 ---
 
+## Pin Configuration
+
+| STM32F091RC Pin | Configuration | Connected Device / Function |
+|-----------------|---------------|-----------------------------|
+| PA0 | GPIO Output | HC-SR04 Trigger |
+| PA1 | TIM2_CH2 | HC-SR04 Echo |
+| PB6 | I2C1_SCL | I²C Clock — LCD + AT24C32 |
+| PB7 | I2C1_SDA | I²C Data — LCD + AT24C32 |
+| PA9 | USART1_TX | UART Transmit to PC |
+| PA10 | USART1_RX | UART Receive |
+| PA5 | GPIO Output | Buzzer |
+| PA6 | GPIO Output | Red LED |
+| PA7 | GPIO Output | Green LED |
+| PB0 | GPIO Input | SET Button |
+| PB1 | GPIO Input | UP Button |
+| PB2 | GPIO Input | DOWN Button |
+
 ##  Microcontroller Peripherals
 
 | Peripheral | Purpose |
